@@ -1,10 +1,17 @@
 package pl.javastart.task;
 
+import java.util.Arrays;
+
 public class UniversityApp {
+    int id;
+    String degree;
+    String firstName;
+    String lastName;
+    int index= 0;
 
     /**
      * Tworzy prowadzącego zajęcia.
-     * W przypadku gdy prowadzący z zadanym id już istnieje, wyświetlany jest komunikat:
+     * W przypadku gdy prowadzący z zadanym id już istnieje; wyświetlany jest komunikat:
      * "Prowadzący z id [id_prowadzacego] już istnieje"
      *
      * @param id        - unikalny identyfikator prowadzącego
@@ -12,8 +19,19 @@ public class UniversityApp {
      * @param firstName - imię prowadzącego
      * @param lastName  - nazwisko prowadzącego
      */
+
     public void createLecturer(int id, String degree, String firstName, String lastName) {
 
+
+        if (id == Lecturer.lecturers[index]) {
+            System.out.println("Prowadzący z id " + id + " już istnieje");
+        } else {
+            this.degree = degree;
+            this.firstName = firstName;
+            this.lastName = lastName;
+            Lecturer.addLecturerId(id, Lecturer.lecturers);
+        }
+        index++;
     }
 
     /**
